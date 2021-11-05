@@ -1,0 +1,46 @@
+<div class="jumbotron">
+  <h1 class="display-4">Shopping Cart</h1>
+  <p class="lead"></p>
+  <hr class="my-4">
+  <p>
+  
+  <table>
+  <tr>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Remove</th>
+  </tr>
+    <% @cart.each do |f| %>
+  <tr>
+    <td><%= f.name %></td>
+    <td><%= number_to_currency(f.price) %></td>
+    <td>
+      <%= form_tag('/products/' + f.id.to_s, method: :delete) do %>
+        <%= submit_tag "Remove" %>
+      <% end %>
+    </td>
+    <% end %>
+  </tr>
+</table>
+
+<h3>Sales tax <%= number_to_currency(@tax) %></h3>
+<h3>Imported tax <%= number_to_currency(@importedTax) %></h3>
+<h3>Total Bill <%= number_to_currency(@totalBill) %></h3>
+
+<%= link_to "Back", products_url %>
+  
+  </p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

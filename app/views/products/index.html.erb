@@ -1,0 +1,94 @@
+
+
+<!--
+<h3><%= @products.each do |f| %> Products</h3>
+    <%= f.name %>
+    <%= f.price %>
+<% end %>
+-->
+
+
+<div class="jumbotron">
+  <h1 class="display-4">Sales tax app</h1>
+  <p class="lead">Select items to put in your cart</p>
+  <hr class="my-4">
+  <p>
+
+    <%=form_with(scope: 'products', url: '/products/addItem', method: :post) do |f| %>
+        <%= f.select :id, @products.map {|p| [p.name, p.id] } %>
+        <%= f.submit "Add to cart" %>
+    <% end %>
+
+    <%=form_with(url: '/products/clearSession', method: :post) do |f| %>    
+        <%= f.submit "Clear session" %>
+    <% end %>
+  
+  </p>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+<h1>Index page</h1>
+
+<h2>Add items to your shopping cart</h2>
+
+
+<%= @products.each do |f| %>
+<%= f.name %>
+<%= f.price %>
+<% end %>
+
+
+<%= form_with(scope: "products", url: '/products/addItem', method: :post) do |f| %>
+    <%= f.select :id, @products.map {|p| [p.name, p.id] } %>
+    <%= f.submit "Add to cart" %>
+<% end %>
+
+<%= form_with url: '/products/clearSession', method: :post do |f| %>
+    <%= f. submit "Clear session" %>
+<% end %>
+-->
+
